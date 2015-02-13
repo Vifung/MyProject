@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>New Title</title>
+		<title>Calculator</title>
 	</head>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
@@ -11,11 +11,62 @@
 	<script>
 		$(document).ready(
 			function() {
-				$("#calc").click(
+				var num1 = 0;
+				var num2 = 0;
+				var total = 0;
+				var add = function() {
+					num1 = parseInt($("#num1").val());
+					num2 = parseInt($("#num2").val());
+					total = num1 + num2;
+				}
+
+				var sub = function() {
+					num1 = parseInt($("#num1").val());
+					num2 = parseInt($("#num2").val());
+					total = num1 - num2;
+				}
+
+				var mult = function() {
+					num1 = parseInt($("#num1").val());
+					num2 = parseInt($("#num2").val());
+					total = num1 * num2;
+				}
+
+				var divi = function() {
+					num1 = parseInt($("#num1").val());
+					num2 = parseInt($("#num2").val());
+					total = num1 / num2;
+				}
+				
+				//addition
+				$("#add").click(
 					function() {
-						var num1 = parseInt($("#num1").val());
-						var num2 = parseInt($("#num2").val());
-						var total = num1 + num2;
+						add();
+						$("#display").html("<h1>"+total+"</h1>");
+					}
+				);
+
+				//subtract
+				$("#sub").click(
+					function() {
+						sub();
+						$("#display").html("<h1>"+total+"</h1>");
+					}
+				);
+
+				//multiply
+				$("#mult").click(
+					function() {
+						mult();
+
+						$("#display").html("<h1>"+total+"</h1>");
+					}
+				);
+
+				//divide
+				$("#divi").click(
+					function() {
+						divi();
 
 						$("#display").html("<h1>"+total+"</h1>");
 					}
@@ -27,6 +78,9 @@
 	<body>
 		<input id="num1" type="text" placeholder="this 1st #"/>
 		<button id="add">+</button>
+		<button id="sub">-</button>
+		<button id="mult">X</button>
+		<button id="divi">/</button>
 		<input id="num2" type="text" placeholder="the 2nd #"/>
 		<button id="calc">Calculate</button>
 
