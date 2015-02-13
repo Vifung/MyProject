@@ -15,6 +15,11 @@
 				var num2 = 0;
 				var total = 0;
 
+				var showNumber = function() {
+					$("#display").html("<h1>"+total+"</h1>");
+				}
+
+
 				var getNumber = function() {
 					num1 = parseInt($("#num1").val());
 					num2 = parseInt($("#num2").val());
@@ -44,7 +49,6 @@
 				$("#add").click(
 					function() {
 						add();
-						$("#display").html("<h1>"+total+"</h1>");
 					}
 				);
 
@@ -52,7 +56,6 @@
 				$("#sub").click(
 					function() {
 						sub();
-						$("#display").html("<h1>"+total+"</h1>");
 					}
 				);
 
@@ -61,7 +64,6 @@
 					function() {
 						mult();
 
-						$("#display").html("<h1>"+total+"</h1>");
 					}
 				);
 
@@ -70,7 +72,12 @@
 					function() {
 						divi();
 
-						$("#display").html("<h1>"+total+"</h1>");
+					}
+				);
+
+				$("#calc").click(
+					function() {
+						showNumber();
 					}
 				);
 			}
