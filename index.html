@@ -16,7 +16,12 @@
 				var total = 0;
 
 				var showNumber = function() {
-					$("#display").html("<h1>"+total+"</h1>");
+					$("#display").html("Your total is "+total+"!");
+					$("#display").animate(
+						{
+							"bottom":"100px"
+						}
+					);
 				}
 
 
@@ -48,28 +53,28 @@
 				$("#topleft").click(
 					function() {
 						add();
-						alert(total);
+						showNumber();
 					}
 				);
 
 				$("#topright").click(
 					function() {
 						sub();
-						alert(total);
+						showNumber();
 					}
 				);
 
 				$("#bottomleft").click(
 					function() {
 						mult();
-						alert(total);
+						showNumber();
 					}
 				);
 
 				$("#bottomright").click(
 					function() {
 						divi();
-						alert(total);
+						showNumber();
 					}
 				);
 				
@@ -151,8 +156,8 @@
 
 		#numbers {
 			position: fixed;
-			top: 47%;
-			left: 24%;
+			top: 43%;
+			left: 37%;
 			z-index: 1;
 		}
 
@@ -160,12 +165,27 @@
 			height: 50px;
 			font-size: 15pt;
 		}
+
+		#display {
+			padding-top: 20px;
+			position: fixed;
+			bottom: -100px;
+			height: 100px;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100px;
+			background: white;
+			font-size: 15pt;
+			text-align: center;
+		}
 	</style>
 
 	<body>
 		<div id="numbers">
-			<input id="num1" type="text" placeholder="this 1st #"/>
-			<input id="num2" type="text" placeholder="the 2nd #"/>
+			<input id="num1" type="text" placeholder="this first number"/>
+			<br></br>
+			<input id="num2" type="text" placeholder="the second number"/>
 		</div>
 		<div id="topright">
 		</div>
